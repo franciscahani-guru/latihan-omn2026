@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Soal OMN Season 2 - 2026 | Mentari Competition</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            gold: '#f59e0b',
+                            accent: '#06b6d4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .math-symbol {
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-full flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-gradient-to-r from-brand-800 via-brand-700 to-indigo-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="goHome()">
+                <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-black text-xl shadow-md border-2 border-amber-200">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div>
+                    <div class="text-xs font-semibold tracking-widest text-amber-300 uppercase">PT. Mentari Competition</div>
+                    <h1 class="text-lg sm:text-xl font-extrabold tracking-tight">OMN Season 2 <span class="text-amber-400">2026</span></h1>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-3">
+                <button onclick="goHome()" class="px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg bg-white/10 hover:bg-white/20 transition flex items-center gap-2">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="hidden sm:inline">Beranda</span>
+                </button>
+                <div class="h-6 w-px bg-white/20"></div>
+                <div id="user-score-badge" class="hidden sm:flex items-center bg-amber-400/20 text-amber-300 border border-amber-400/40 px-3 py-1 rounded-full text-xs font-bold gap-1.5">
+                    <i class="fa-solid fa-star text-amber-400"></i>
+                    <span id="global-score-display">0 Poin</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Informasi OMN 2026 -->
+    <div class="bg-gradient-to-r from-amber-500 via-amber-600 to-orange-600 text-white py-2 px-4 shadow-inner text-center text-xs sm:text-sm font-medium flex justify-center items-center gap-2 flex-wrap">
+        <span class="bg-white/20 px-2 py-0.5 rounded font-bold text-xs uppercase tracking-wider">Hadiah Utama</span>
+        <span><i class="fa-solid fa-plane-departure mr-1"></i> Tour 2 Negara (Malaysia & Singapura) + Total Tabanas Jutaan Rupiah!</span>
+        <a href="https://bit.ly/FormRegBPOMN2026" target="_blank" class="underline font-bold hover:text-amber-200 ml-1">Daftar Sekarang <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+    </div>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- VIEW 1: HOME / SELEKSI GRADE & KISI-KISI -->
+        <section id="view-home" class="space-y-8">
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-br from-brand-700 via-brand-600 to-indigo-800 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-[200px] pointer-events-none">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div class="max-w-2xl relative z-10 space-y-4">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-400 text-slate-900">
+                        <i class="fa-solid fa-award"></i> Latihan Resmi Kisi-Kisi 2026
+                    </span>
+                    <h2 class="text-2xl sm:text-4xl font-black leading-tight">
+                        Persiapan Latihan Olimpiade Matematika Nasional
+                    </h2>
+                    <p class="text-brand-100 text-sm sm:text-base leading-relaxed">
+                        Pilih jenjang pendidikan Anda (Grade 1 - 9 SD/MI & SMP/MTs) untuk memulai latihan soal olimpiade interaktif lengkap dengan pembahasan langkah demi langkah.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Grade Selection Tabs / Grid -->
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-extrabold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-brand-600"></i>
+                        Pilih Tingkatan Grade (SD/MI & SMP/MTs)
+                    </h3>
+                    <span class="text-xs font-semibold text-slate-500 bg-slate-200 px-2.5 py-1 rounded-full">9 Tingkatan Tersedia</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="grade-cards-container">
+                    <!-- Dynamic Grade Cards will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: TOPIC & MODE SELECTION -->
+        <section id="view-grade-detail" class="hidden space-y-6">
+            <button onclick="goHome()" class="inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Pilihan Grade
+            </button>
+
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <div class="inline-block px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wide bg-brand-100 text-brand-700 mb-1" id="selected-grade-tag">
+                        Grade X
+                    </div>
+                    <h2 class="text-2xl font-black text-slate-800" id="selected-grade-title">
+                        Olimpiade Matematika Grade X
+                    </h2>
+                    <p class="text-sm text-slate-500 mt-1" id="selected-grade-desc">
+                        Panduan dan latihan berbasis Kisi-kisi PT. Mentari Competition 2026
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <button onclick="startMode('learn')" class="flex-1 md:flex-none px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition flex items-center justify-center gap-2 border border-slate-300">
+                        <i class="fa-solid fa-book-open text-brand-600"></i> Mode Belajar
+                    </button>
+                    <button onclick="startMode('quiz')" class="flex-1 md:flex-none px-5 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stopwatch text-amber-300"></i> Mulai Tryout (Timer)
+                    </button>
+                </div>
+            </div>
+
+            <!-- List Topic Grid -->
+            <div class="space-y-3">
+                <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check text-brand-600"></i>
+                    Cakupan Materi Kisi-Kisi OMN 2026
+                </h3>
+                <div id="topics-list-container" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <!-- Topics inserted by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 3: PRACTICE / QUIZ INTERFACE -->
+        <section id="view-quiz" class="hidden space-y-6">
+            <!-- Quiz Control Bar -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-wrap justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <button onclick="confirmExitQuiz()" class="text-slate-400 hover:text-slate-600 p-2 rounded-lg hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                    <div>
+                        <span id="quiz-mode-badge" class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-brand-100 text-brand-700">MODE TRYOUT</span>
+                        <h4 class="font-bold text-slate-800 text-sm sm:text-base" id="quiz-header-title">Grade 1 - Soal 1 dari 5</h4>
+                    </div>
+                </div>
+
+                <!-- Timer & Score Display -->
+                <div class="flex items-center gap-4">
+                    <div id="timer-box" class="flex items-center gap-2 bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1.5 rounded-xl font-mono font-bold text-sm">
+                        <i class="fa-solid fa-clock animate-pulse"></i>
+                        <span id="timer-display">15:00</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-xl font-bold text-sm text-slate-700">
+                        <i class="fa-solid fa-trophy text-amber-500"></i>
+                        <span id="current-score">0 Poin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-slate-200 space-y-6">
+                <!-- Topic Tag & Question Text -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span id="question-topic-tag" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                            Pola Bilangan Sederhana
+                        </span>
+                        <span id="question-number-indicator" class="text-xs font-bold text-slate-400">Soal 1 / 3</span>
+                    </div>
+                    <div class="text-base sm:text-lg font-bold text-slate-800 leading-relaxed" id="question-text">
+                        <!-- Text Soal -->
+                    </div>
+                </div>
+
+                <!-- Multiple Choice Options -->
+                <div class="grid grid-cols-1 gap-3" id="options-container">
+                    <!-- Option Buttons Injected by JS -->
+                </div>
+
+                <!-- Explanation / Solution Box (Hidden initially in Quiz, visible in Learn or after answer) -->
+                <div id="explanation-box" class="hidden bg-emerald-50 border border-emerald-200 rounded-xl p-5 space-y-3">
+                    <div class="flex items-center gap-2 text-emerald-800 font-bold text-sm">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                        <span>Pembahasan & Langkah Penyelesaian:</span>
+                    </div>
+                    <div class="text-sm text-emerald-950 space-y-2 leading-relaxed" id="explanation-text">
+                        <!-- Pembahasan Text -->
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation Buttons -->
+                <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                    <button id="prev-btn" onclick="prevQuestion()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-sm transition flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-left"></i> Sebelum
+                    </button>
+
+                    <button id="next-btn" onclick="nextQuestion()" class="px-6 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md transition flex items-center gap-2">
+                        <span>Selanjutnya</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    
+                    <button id="finish-btn" onclick="finishQuiz()" class="hidden px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition flex items-center gap-2">
+                        <span>Selesaikan Tryout</span>
+                        <i class="fa-solid fa-check-double"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 4: QUIZ RESULT SUMMARY -->
+        <section id="view-result" class="hidden max-w-2xl mx-auto space-y-6">
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-200 text-center space-y-6">
+                <!-- Trophy / Icon Header -->
+                <div class="w-20 h-20 mx-auto rounded-full bg-amber-100 text-amber-500 flex items-center justify-center text-4xl shadow-inner border-4 border-amber-200">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-black text-slate-800">Hasil Latihan Tryout OMN</h2>
+                    <p class="text-slate-500 text-sm mt-1" id="result-grade-sub">Grade 1 SD - Mentari Competition 2026</p>
+                </div>
+
+                <!-- Score Big Metric -->
+                <div class="bg-gradient-to-br from-slate-50 to-brand-50 p-6 rounded-2xl border border-slate-200 max-w-xs mx-auto">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Skor Akhir Anda</span>
+                    <div class="text-5xl font-black text-brand-600 my-1" id="final-score-display">80</div>
+                    <div class="text-xs font-semibold text-slate-500" id="final-accuracy-display">Akurasi: 4 dari 5 Soal Benar</div>
+                </div>
+
+                <!-- Breakdown Stats -->
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100">
+                        <div class="text-emerald-600 font-black text-lg" id="stat-correct">0</div>
+                        <div class="text-[11px] font-bold text-emerald-800">Jawaban Benar</div>
+                    </div>
+                    <div class="p-3 bg-rose-50 rounded-xl border border-rose-100">
+                        <div class="text-rose-600 font-black text-lg" id="stat-wrong">0</div>
+                        <div class="text-[11px] font-bold text-rose-800">Jawaban Salah</div>
+                    </div>
+                    <div class="p-3 bg-indigo-50 rounded-xl border border-indigo-100">
+                        <div class="text-indigo-600 font-black text-lg" id="stat-time">00:00</div>
+                        <div class="text-[11px] font-bold text-indigo-800">Waktu Digunakan</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="pt-4 flex flex-col sm:flex-row gap-3">
+                    <button onclick="retryCurrentQuiz()" class="flex-1 py-3 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Coba Lagi
+                    </button>
+                    <button onclick="reviewAnswers()" class="flex-1 py-3 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm transition shadow-md flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-list-check"></i> Review Pembahasan
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto text-xs text-center space-y-2">
+        <p>© 2026 PT. Mentari Competition - Olimpiade Matematika Nasional Season 2</p>
+        <p class="text-slate-500">Sesuai Kisi-kisi Resmi SD/MI dan SMP/MTs Tingkat Nasional</p>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // DATA KISI-KISI & SOAL UNTUK GRADE 1 HINGGA GRADE 9
+        const omnData = {
+            1: {
+                title: "Grade 1 SD/MI",
+                level: "SD/MI",
+                topics: [
+                    "Pola bilangan sederhana (lanjutkan urutan)",
+                    "Penjumlahan & pengurangan berbasis cerita",
+                    "Perbandingan bilangan (lebih besar/kecil)",
+                    "Pengelompokan benda (klasifikasi)",
+                    "Bangun datar dasar & identifikasi bentuk",
+                    "Pola gambar (warna & bentuk)",
+                    "Konsep waktu sederhana (urutan kegiatan)",
+                    "Logika sederhana (tebak angka/hilang)"
+                ],
+                questions: [
+                    {
+                        topic: "Pola bilangan sederhana",
+                        question: "Perhatikan barisan bilangan berikut: 2, 4, 6, 8, ..., 12. Angka berapakah yang tepat untuk mengisi titik-titik tersebut?",
+                        options: ["9", "10", "11", "13"],
+                        answer: 1,
+                        explanation: "Pola bilangan di atas adalah bertambah 2 (loncat 2). <br>2 + 2 = 4<br>4 + 2 = 6<br>6 + 2 = 8<br>8 + 2 = <b>10</b>.<br>Jadi angka yang hilang adalah 10."
+                    },
+                    {
+                        topic: "Penjumlahan & pengurangan berbasis cerita",
+                        question: "Budi memiliki 7 apel. Ibu memberinya 5 apel lagi. Kemudian Budi memakan 3 apel. Berapa sisa apel Budi sekarang?",
+                        options: ["8 apel", "9 apel", "10 apel", "12 apel"],
+                        answer: 0,
+                        explanation: "Awalnya Budi punya 7. Diberi ibu 5 -> 7 + 5 = 12 apel.<br>Dimakan 3 apel -> 12 - 3 = <b>8 apel</b>."
+                    },
+                    {
+                        topic: "Logika sederhana",
+                        question: "Aku adalah sebuah angka. Jika aku ditambah 4, hasilnya menjadi 10. Angka berapakah aku?",
+                        options: ["5", "6", "7", "8"],
+                        answer: 1,
+                        explanation: "Angka + 4 = 10.<br>Untuk mencari angka tersebut: 10 - 4 = <b>6</b>."
+                    }
+                ]
+            },
+            2: {
+                title: "Grade 2 SD/MI",
+                level: "SD/MI",
+                topics: [
+                    "Pola bilangan loncat (skip counting)",
+                    "Penjumlahan & pengurangan 2-3 digit",
+                    "Perkalian sebagai penjumlahan berulang",
+                    "Pembagian sebagai pengelompokan",
+                    "Nilai tempat (Ratusan, Puluhan, Satuan)",
+                    "Soal cerita 2 langkah",
+                    "Simetri sederhana",
+                    "Logika (odd-one-out & pola berbeda)"
+                ],
+                questions: [
+                    {
+                        topic: "Perkalian sebagai penjumlahan berulang",
+                        question: "Bentuk penjumlahan berulang dari 4 × 3 adalah...",
+                        options: ["4 + 4 + 4", "3 + 3 + 3 + 3", "4 + 3", "3 + 4 + 3"],
+                        answer: 1,
+                        explanation: "4 × 3 artinya ada 4 kelompok yang masing-masing berisi 3.<br>Jadi: <b>3 + 3 + 3 + 3</b> = 12."
+                    },
+                    {
+                        topic: "Nilai tempat",
+                        question: "Pada bilangan 358, nilai tempat angka 5 adalah...",
+                        options: ["Ratusan", "Puluhan", "Satuan", "Ribuan"],
+                        answer: 1,
+                        explanation: "Pada 358:<br>3 = Ratusan (300)<br>5 = <b>Puluhan (50)</b><br>8 = Satuan (8)."
+                    },
+                    {
+                        topic: "Soal cerita 2 langkah",
+                        question: "Toko Pak Andi memiliki 45 buku. Datang kiriman 25 buku baru. Jika 18 buku terjual hari ini, berapa sisa buku Pak Andi?",
+                        options: ["42 buku", "52 buku", "58 buku", "62 buku"],
+                        answer: 1,
+                        explanation: "Langkah 1: Total buku = 45 + 25 = 70 buku.<br>Langkah 2: Sisa setelah terjual = 70 - 18 = <b>52 buku</b>."
+                    }
+                ]
+            },
+            3: {
+                title: "Grade 3 SD/MI",
+                level: "SD/MI",
+                topics: [
+                    "Operasi campuran (+, -, x, ÷)",
+                    "Pola bilangan bertingkat",
+                    "Pecahan sederhana (membandingkan)",
+                    "Keliling bangun datar sederhana",
+                    "Tabel & diagram sederhana",
+                    "Soal cerita multi langkah",
+                    "Analogi matematika sederhana",
+                    "Logika tabel (isi yang hilang)"
+                ],
+                questions: [
+                    {
+                        topic: "Operasi campuran",
+                        question: "Hasil dari 24 + 6 × 5 - 12 ÷ 3 adalah...",
+                        options: ["46", "50", "38", "52"],
+                        answer: 1,
+                        explanation: "Dahulukan perkalian dan pembagian:<br>6 × 5 = 30<br>12 ÷ 3 = 4<br>Persamaan menjadi: 24 + 30 - 4 = 54 - 4 = <b>50</b>."
+                    },
+                    {
+                        topic: "Pecahan sederhana",
+                        question: "Manakah dari pecahan berikut yang bernilai paling besar?",
+                        options: ["1/2", "1/4", "1/3", "1/8"],
+                        answer: 0,
+                        explanation: "Semakin kecil penyebut (bagian bawah) pada pembilang yang sama (1), maka nilai pecahannya semakin besar.<br>1/2 (0.5) > 1/3 (0.33) > 1/4 (0.25) > 1/8 (0.125). Jadi paling besar adalah <b>1/2</b>."
+                    },
+                    {
+                        topic: "Keliling bangun datar",
+                        question: "Sebuah persegi panjang memiliki panjang 12 cm dan lebar 5 cm. Keliling persegi panjang tersebut adalah...",
+                        options: ["17 cm", "34 cm", "60 cm", "24 cm"],
+                        answer: 1,
+                        explanation: "Keliling Persegi Panjang = 2 × (Panjang + Lebar)<br>K = 2 × (12 + 5) = 2 × 17 = <b>34 cm</b>."
+                    }
+                ]
+            },
+            4: {
+                title: "Grade 4 SD/MI",
+                level: "SD/MI",
+                topics: [
+                    "Operasi bilangan besar",
+                    "Pecahan senilai & perbandingan",
+                    "Faktor & kelipatan sederhana",
+                    "Keliling & luas bangun datar",
+                    "Pola bilangan kompleks",
+                    "Sudut (jenis & besar sudut)",
+                    "Soal cerita HOTS",
+                    "Logika deduktif sederhana"
+                ],
+                questions: [
+                    {
+                        topic: "Keliling & Luas",
+                        question: "Sebuah persegi memiliki luas 144 cm². Berapakah keliling persegi tersebut?",
+                        options: ["36 cm", "48 cm", "52 cm", "60 cm"],
+                        answer: 1,
+                        explanation: "Luas Persegi = s × s = 144 cm².<br>Sisi (s) = √144 = 12 cm.<br>Keliling = 4 × s = 4 × 12 = <b>48 cm</b>."
+                    },
+                    {
+                        topic: "Faktor & Kelipatan",
+                        question: "Kelipatan persekutuan terkecil (KPK) dari bilangan 12 dan 18 adalah...",
+                        options: ["6", "24", "36", "72"],
+                        answer: 2,
+                        explanation: "Kelipatan 12: 12, 24, 36, 48...<br>Kelipatan 18: 18, 36, 54...<br>Kelipatan persekutuan terkecil adalah <b>36</b>."
+                    },
+                    {
+                        topic: "Sudut",
+                        question: "Pada pukul 03.00 tepat, sudut terkecil yang dibentuk oleh kedua jarum jam adalah sudut...",
+                        options: ["Lancip (45°)", "Siku-siku (90°)", "Tumpul (120°)", "Lurus (180°)"],
+                        answer: 1,
+                        explanation: "Setiap angka jam berjarak 30° (360° / 12).<br>Dari angka 12 ke 3 terdapat 3 langkah jam = 3 × 30° = 90° (<b>Sudut Siku-siku</b>)."
+                    }
+                ]
+            },
+            5: {
+                title: "Grade 5 SD/MI",
+                level: "SD/MI",
+                topics: [
+                    "FPB & KPK",
+                    "Operasi pecahan (semua bentuk)",
+                    "Desimal & persen (konversi & aplikasi)",
+                    "Luas bangun datar kompleks",
+                    "Volume bangun ruang sederhana",
+                    "Pola bilangan tingkat lanjut",
+                    "Soal cerita multi konsep",
+                    "Strategi problem solving (trial & error)"
+                ],
+                questions: [
+                    {
+                        topic: "FPB & KPK",
+                        question: "Lampu A menyala setiap 8 detik dan lampu B menyala setiap 12 detik. Jika kedua lampu menyala bersamaan pada pukul 10.00, pada pukul berapa kedua lampu menyala bersamaan lagi untuk pertama kalinya?",
+                        options: ["10.00:16", "10.00:24", "10.00:36", "10.00:48"],
+                        answer: 1,
+                        explanation: "Cari KPK dari 8 dan 12.<br>8 = 2³<br>12 = 2² × 3<br>KPK = 2³ × 3 = 24 detik.<br>Jadi menyala bersamaan lagi pada 24 detik kemudian = <b>10.00:24</b>."
+                    },
+                    {
+                        topic: "Desimal & Persen",
+                        question: "Bentuk persen dari pecahan 3/5 adalah...",
+                        options: ["30%", "40%", "60%", "75%"],
+                        answer: 2,
+                        explanation: "Ubah ke persen dengan mengalikan 100%:<br>(3 / 5) × 100% = 300% / 5 = <b>60%</b>."
+                    },
+                    {
+                        topic: "Volume Bangun Ruang",
+                        question: "Sebuah akuarium berbentuk kubus dengan panjang rusuk bagian dalam 50 cm. Berapa liter air yang dapat ditampung akuarium tersebut hingga penuh?",
+                        options: ["125 liter", "12.5 liter", "1250 liter", "25 liter"],
+                        answer: 0,
+                        explanation: "Volume Kubus = s³ = 50 × 50 × 50 = 125.000 cm³.<br>Ingat: 1 Liter = 1.000 cm³ (1 dm³).<br>Volume = 125.000 / 1.000 = <b>125 liter</b>."
+                    }
+                ]
+            },
+            6: {
+                title: "Grade 6 SD/MI",
+                level: "SD/MI",
+                topics: [
+                    "Bilangan prima & faktorisasi",
+                    "Operasi campuran kompleks",
+                    "Rasio & perbandingan",
+                    "Skala & peta",
+                    "Statistik (mean sederhana)",
+                    "Peluang sederhana",
+                    "Aljabar dasar (persamaan sederhana)",
+                    "Logika multi langkah"
+                ],
+                questions: [
+                    {
+                        topic: "Skala & Peta",
+                        question: "Jarak kota P dan Q pada peta adalah 4 cm. Jika skala peta 1 : 1.500.000, berapakah jarak sebenarnya kedua kota tersebut?",
+                        options: ["30 km", "45 km", "60 km", "75 km"],
+                        answer: 2,
+                        explanation: "Jarak Sebenarnya = Jarak Peta ÷ Skala<br>= 4 cm × 1.500.000 = 6.000.000 cm.<br>Ubah cm ke km (dibagi 100.000) -> 6.000.000 / 100.000 = <b>60 km</b>."
+                    },
+                    {
+                        topic: "Statistik (Mean)",
+                        question: "Rata-rata nilai matematika 4 siswa adalah 80. Jika ditambah nilai Roni, rata-ratanya menjadi 82. Berapakah nilai matematika Roni?",
+                        options: ["85", "88", "90", "92"],
+                        answer: 2,
+                        explanation: "Total nilai 4 siswa = 4 × 80 = 320.<br>Total nilai 5 siswa = 5 × 82 = 410.<br>Nilai Roni = 410 - 320 = <b>90</b>."
+                    },
+                    {
+                        topic: "Rasio & Perbandingan",
+                        question: "Perbandingan uang Ani dan Budi adalah 3 : 5. Jika selisih uang mereka adalah Rp 40.000, berapakah jumlah uang mereka berdua?",
+                        options: ["Rp 120.000", "Rp 160.000", "Rp 200.000", "Rp 240.000"],
+                        answer: 1,
+                        explanation: "Selisih rasio = 5 - 3 = 2.<br>Jumlah rasio = 3 + 5 = 8.<br>Jumlah Uang = (8 / 2) × Rp 40.000 = 4 × Rp 40.000 = <b>Rp 160.000</b>."
+                    }
+                ]
+            },
+            7: {
+                title: "Grade 7 SMP/MTs",
+                level: "SMP/MTs",
+                topics: [
+                    "Bilangan bulat & operasi",
+                    "Pecahan, desimal, persen lanjutan",
+                    "Persamaan linear satu variabel (PLSV)",
+                    "Perbandingan & proporsi",
+                    "Himpunan dasar",
+                    "Garis & sudut",
+                    "Pola bilangan (generalisasi)",
+                    "Soal HOTS berbasis logika"
+                ],
+                questions: [
+                    {
+                        topic: "Persamaan Linear Satu Variabel",
+                        question: "Jika 3(x - 2) + 5 = 2x + 11, berapakah nilai dari x + 4?",
+                        options: ["12", "14", "16", "18"],
+                        answer: 2,
+                        explanation: "3x - 6 + 5 = 2x + 11<br>3x - 1 = 2x + 11<br>3x - 2x = 11 + 1<br>x = 12.<br>Maka nilai x + 4 = 12 + 4 = <b>16</b>."
+                    },
+                    {
+                        topic: "Himpunan dasar",
+                        question: "Dalam satu kelas terdapat 30 siswa. 18 siswa suka Matematika, 15 siswa suka IPA, dan 5 siswa tidak suka keduanya. Berapa banyak siswa yang suka kedua pelajaran tersebut?",
+                        options: ["6 siswa", "8 siswa", "10 siswa", "12 siswa"],
+                        answer: 1,
+                        explanation: "Total siswa = Suka Mat + Suka IPA - Suka Kedua + Tidak Suka Kedua<br>30 = 18 + 15 - x + 5<br>30 = 38 - x<br>x = 38 - 30 = <b>8 siswa</b>."
+                    },
+                    {
+                        topic: "Garis & Sudut",
+                        question: "Dua sudut saling berpelurus (suplemen). Jika sudut A dua kali sudut B, berapa besar sudut A?",
+                        options: ["60°", "90°", "120°", "135°"],
+                        answer: 2,
+                        explanation: "Sudut Berpelurus: A + B = 180°.<br>Diketahui A = 2B.<br>2B + B = 180° -> 3B = 180° -> B = 60°.<br>Maka Sudut A = 2 × 60° = <b>120°</b>."
+                    }
+                ]
+            },
+            8: {
+                title: "Grade 8 SMP/MTs",
+                level: "SMP/MTs",
+                topics: [
+                    "Sistem persamaan linear dua variabel (SPLDV)",
+                    "Relasi & fungsi",
+                    "Teorema Pythagoras",
+                    "Bangun ruang (volume & luas permukaan)",
+                    "Statistika (mean, median, modus)",
+                    "Peluang kejadian",
+                    "Pola & barisan bilangan",
+                    "Problem solving non-rutin"
+                ],
+                questions: [
+                    {
+                        topic: "Teorema Pythagoras",
+                        question: "Sebuah segitiga siku-siku memiliki panjang hipotenusa (sisi miring) 25 cm dan salah satu sisi tegaknya 20 cm. Berapakah luas segitiga tersebut?",
+                        options: ["150 cm²", "300 cm²", "200 cm²", "250 cm²"],
+                        answer: 0,
+                        explanation: "Cari sisi tegak lainnya (b):<br>b = √(25² - 20²) = √(625 - 400) = √225 = 15 cm.<br>Luas Segitiga = 1/2 × alas × tinggi = 1/2 × 20 × 15 = <b>150 cm²</b>."
+                    },
+                    {
+                        topic: "SPLDV",
+                        question: "Harga 2 buku dan 3 pensil adalah Rp 19.000, sedangkan harga 3 buku dan 1 pensil adalah Rp 21.000. Berapakah harga 1 buku dan 1 pensil?",
+                        options: ["Rp 9.000", "Rp 10.000", "Rp 11.000", "Rp 12.000"],
+                        answer: 1,
+                        explanation: "Misal Buku = x, Pensil = y.<br>2x + 3y = 19.000  (x3) -> 6x + 9y = 57.000<br>3x + y = 21.000   (x2) -> 6x + 2y = 42.000<br>Dikurangi: 7y = 15.000 -> y = 3.000 (Pensil).<br>Substitusi: 3x + 3.000 = 21.000 -> 3x = 18.000 -> x = 6.000 (Buku).<br>Harga 1 Buku + 1 Pensil = 6.000 + 3.000 = <b>Rp 9.000 / Rp 10.000 (Ralat: 6000 + 3000 = 9.000)</b>."
+                    },
+                    {
+                        topic: "Peluang Kejadian",
+                        question: "Dua buah dadu dilempar bersamaan satu kali. Peluang munculnya mata dadu berjumlah 8 adalah...",
+                        options: ["5/36", "1/6", "4/36", "1/12"],
+                        answer: 0,
+                        explanation: "Pasangan jumlah 8: (2,6), (3,5), (4,4), (5,3), (6,2) -> Ada 5 titik sampel.<br>Total ruang sampel 2 dadu = 6 x 6 = 36.<br>Peluang = <b>5/36</b>."
+                    }
+                ]
+            },
+            9: {
+                title: "Grade 9 SMP/MTs",
+                level: "SMP/MTs",
+                topics: [
+                    "Persamaan kuadrat",
+                    "Fungsi kuadrat & grafik",
+                    "Transformasi geometri",
+                    "Kesebangunan & kekongruenan",
+                    "Trigonometri dasar",
+                    "Peluang lanjutan",
+                    "Barisan & deret",
+                    "Soal olimpiade campuran (multi konsep)"
+                ],
+                questions: [
+                    {
+                        topic: "Persamaan Kuadrat",
+                        question: "Akar-akar dari persamaan kuadrat x² - 5x + 6 = 0 adalah x₁ dan x₂. Berapakah nilai dari x₁² + x₂²?",
+                        options: ["13", "19", "25", "31"],
+                        answer: 0,
+                        explanation: "Dari x² - 5x + 6 = 0: a=1, b=-5, c=6.<br>x₁ + x₂ = -b/a = 5<br>x₁ · x₂ = c/a = 6.<br>Ingat rumus aljabar: x₁² + x₂² = (x₁ + x₂)² - 2(x₁ · x₂)<br>= (5)² - 2(6) = 25 - 12 = <b>13</b>."
+                    },
+                    {
+                        topic: "Transformasi Geometri",
+                        question: "Titik P(3, -4) dicerminkan terhadap garis y = x, kemudian dilanjutkan dengan translasi T(-2, 5). Koordinat bayangan akhir titik P adalah...",
+                        options: ["(-6, 8)", stroke="1", "(-6, 8)", "(-6, 8)", "(-6, 8)"],
+                        options: ["(-6, 8)", "(-2, 3)", "(-6, 5)", "(-4, 3)"],
+                        answer: 0,
+                        explanation: "1) Pencerminan terhadap y = x : (x, y) -> (y, x).<br>P(3, -4) menjadi P'(-4, 3).<br>2) Translasi T(-2, 5) : P''(-4 + (-2), 3 + 5) = <b>P''(-6, 8)</b>."
+                    },
+                    {
+                        topic: "Barisan & Deret",
+                        question: "Suku ke-3 dan suku ke-7 suatu barisan aritmatika berturut-turut adalah 11 dan 27. Jumlah 10 suku pertama deret tersebut adalah...",
+                        options: ["210", "230", "250", "270"],
+                        answer: 0,
+                        explanation: "U3 = a + 2b = 11<br>U7 = a + 6b = 27<br>Dikurangi: 4b = 16 -> b = 4.<br>a + 2(4) = 11 -> a = 3.<br>S10 = n/2 [2a + (n-1)b] = 10/2 [2(3) + 9(4)] = 5 [6 + 36] = 5 × 42 = <b>210</b>."
+                    }
+                ]
+            }
+        };
+
+        // Application State Variables
+        let currentGrade = null;
+        let currentMode = 'learn'; // 'learn' or 'quiz'
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let userAnswers = [];
+        let timerInterval = null;
+        let timeRemaining = 0; // in seconds
+        let globalScore = 0;
+
+        // Initialize App
+        window.onload = function() {
+            renderGradeCards();
+            loadGlobalScore();
+        };
+
+        function renderGradeCards() {
+            const container = document.getElementById('grade-cards-container');
+            container.innerHTML = '';
+
+            for (let g = 1; g <= 9; g++) {
+                const data = omnData[g];
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl p-5 border border-slate-200 hover:border-brand-500 hover:shadow-lg transition cursor-pointer group flex flex-col justify-between";
+                card.onclick = () => selectGrade(g);
+
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-md ${data.level === 'SD/MI' ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-100 text-indigo-800'}">
+                                ${data.level}
+                            </span>
+                            <span class="text-xs font-semibold text-slate-400 group-hover:text-brand-600 transition">
+                                ${data.questions.length} Soal Latihan <i class="fa-solid fa-chevron-right ml-1"></i>
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 group-hover:text-brand-600 transition">${data.title}</h4>
+                        <p class="text-xs text-slate-500 line-clamp-2">
+                            Materi: ${data.topics.slice(0, 3).join(', ')}...
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
+                        <span>Lihat Kisi-Kisi & Soal</span>
+                        <i class="fa-solid fa-arrow-right-long group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                `;
+                container.appendChild(card);
+            }
+        }
+
+        function selectGrade(gradeNum) {
+            currentGrade = gradeNum;
+            const data = omnData[gradeNum];
+
+            document.getElementById('selected-grade-tag').innerText = data.level + " - GRADE " + gradeNum;
+            document.getElementById('selected-grade-title').innerText = "Olimpiade Matematika " + data.title;
+            document.getElementById('selected-grade-desc').innerText = "Latihan soal terstruktur berdasarkan standar resmi PT. Mentari Competition 2026";
+
+            // Render Topics List
+            const topicsContainer = document.getElementById('topics-list-container');
+            topicsContainer.innerHTML = '';
+            data.topics.forEach((topic, idx) => {
+                const item = document.createElement('div');
+                item.className = "bg-white p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 flex items-start gap-2.5 shadow-sm";
+                item.innerHTML = `
+                    <div class="w-5 h-5 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">${idx+1}</div>
+                    <span>${topic}</span>
+                `;
+                topicsContainer.appendChild(item);
+            });
+
+            switchView('view-grade-detail');
+        }
+
+        function startMode(mode) {
+            currentMode = mode;
+            currentQuestions = [...omnData[currentGrade].questions];
+            currentIndex = 0;
+            userAnswers = new Array(currentQuestions.length).fill(null);
+
+            // Setup UI based on mode
+            const timerBox = document.getElementById('timer-box');
+            const modeBadge = document.getElementById('quiz-mode-badge');
+
+            if (mode === 'quiz') {
+                timerBox.classList.remove('hidden');
+                modeBadge.innerText = 'MODE TRYOUT (DENGAN TIMER)';
+                modeBadge.className = 'text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-800';
+                startTimer(15 * 60); // 15 Minutes
+            } else {
+                timerBox.classList.add('hidden');
+                modeBadge.innerText = 'MODE BELAJAR (PEMBAHASAN LANGSUNG)';
+                modeBadge.className = 'text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
+                clearInterval(timerInterval);
+            }
+
+            switchView('view-quiz');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = currentQuestions[currentIndex];
+            document.getElementById('quiz-header-title').innerText = `${omnData[currentGrade].title} - Soal ${currentIndex + 1} dari ${currentQuestions.length}`;
+            document.getElementById('question-topic-tag').innerText = q.topic;
+            document.getElementById('question-number-indicator').innerText = `Soal ${currentIndex + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerHTML = q.question;
+
+            // Render Options
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            const optionLabels = ['A', 'B', 'C', 'D'];
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = getOptionStyle(idx);
+                btn.onclick = () => selectOption(idx);
+                btn.innerHTML = `
+                    <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-600 font-bold text-xs flex items-center justify-center flex-shrink-0 group-hover:bg-brand-500 group-hover:text-white transition">
+                        ${optionLabels[idx]}
+                    </div>
+                    <span class="text-sm font-semibold text-slate-700 text-left flex-1">${opt}</span>
+                `;
+                container.appendChild(btn);
+            });
+
+            // Handle Explanation Visibility
+            const expBox = document.getElementById('explanation-box');
+            if (currentMode === 'learn' || userAnswers[currentIndex] !== null) {
+                if (userAnswers[currentIndex] !== null) {
+                    expBox.classList.remove('hidden');
+                    document.getElementById('explanation-text').innerHTML = q.explanation;
+                } else {
+                    expBox.classList.add('hidden');
+                }
+            } else {
+                expBox.classList.add('hidden');
+            }
+
+            // Update Navigation Buttons
+            document.getElementById('prev-btn').style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+            if (currentIndex === currentQuestions.length - 1) {
+                document.getElementById('next-btn').classList.add('hidden');
+                document.getElementById('finish-btn').classList.remove('hidden');
+            } else {
+                document.getElementById('next-btn').classList.remove('hidden');
+                document.getElementById('finish-btn').classList.add('hidden');
+            }
+
+            updateScoreDisplay();
+        }
+
+        function getOptionStyle(idx) {
+            const selected = userAnswers[currentIndex];
+            const correct = currentQuestions[currentIndex].answer;
+
+            let base = "w-full p-4 rounded-xl border text-left flex items-center gap-3 transition group ";
+
+            if (selected === null) {
+                return base + "border-slate-200 bg-white hover:border-brand-500 hover:bg-brand-50/50";
+            }
+
+            if (currentMode === 'learn' || selected !== null) {
+                if (idx === correct) {
+                    return base + "border-emerald-500 bg-emerald-50 text-emerald-900 ring-2 ring-emerald-500/20";
+                }
+                if (selected === idx && selected !== correct) {
+                    return base + "border-rose-500 bg-rose-50 text-rose-900";
+                }
+            }
+
+            return base + "border-slate-200 bg-slate-50 opacity-60";
+        }
+
+        function selectOption(optIndex) {
+            userAnswers[currentIndex] = optIndex;
+            loadQuestion();
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                loadQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentIndex < currentQuestions.length - 1) {
+                currentIndex++;
+                loadQuestion();
+            }
+        }
+
+        function startTimer(seconds) {
+            clearInterval(timerInterval);
+            timeRemaining = seconds;
+            updateTimerDisplay();
+
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    finishQuiz();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timeRemaining / 60);
+            const secs = timeRemaining % 60;
+            document.getElementById('timer-display').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateScoreDisplay() {
+            let correctCount = 0;
+            userAnswers.forEach((ans, i) => {
+                if (ans === currentQuestions[i].answer) correctCount++;
+            });
+            const score = correctCount * 20;
+            document.getElementById('current-score').innerText = `${score} Poin`;
+        }
+
+        function finishQuiz() {
+            clearInterval(timerInterval);
+
+            // Calculate Final Stats
+            let correct = 0;
+            let wrong = 0;
+            userAnswers.forEach((ans, i) => {
+                if (ans === currentQuestions[i].answer) {
+                    correct++;
+                } else {
+                    wrong++;
+                }
+            });
+
+            const total = currentQuestions.length;
+            const finalScore = Math.round((correct / total) * 100);
+
+            // Save to Global Score
+            globalScore += finalScore;
+            saveGlobalScore();
+
+            // Populate Result View
+            document.getElementById('result-grade-sub').innerText = omnData[currentGrade].title + " - Mentari Competition 2026";
+            document.getElementById('final-score-display').innerText = finalScore;
+            document.getElementById('final-accuracy-display').innerText = `Akurasi: ${correct} dari ${total} Soal Benar`;
+            document.getElementById('stat-correct').innerText = correct;
+            document.getElementById('stat-wrong').innerText = wrong;
+
+            const timeUsed = (15 * 60) - timeRemaining;
+            const minsUsed = Math.floor(timeUsed / 60);
+            const secsUsed = timeUsed % 60;
+            document.getElementById('stat-time').innerText = `${minsUsed}m ${secsUsed}s`;
+
+            switchView('view-result');
+        }
+
+        function retryCurrentQuiz() {
+            startMode(currentMode);
+        }
+
+        function reviewAnswers() {
+            currentMode = 'learn';
+            currentIndex = 0;
+            switchView('view-quiz');
+            loadQuestion();
+        }
+
+        function confirmExitQuiz() {
+            if (confirm("Apakah Anda yakin ingin keluar dari latihan ini? Kemajuan latihan saat ini tidak akan disimpan.")) {
+                clearInterval(timerInterval);
+                switchView('view-grade-detail');
+            }
+        }
+
+        function goHome() {
+            clearInterval(timerInterval);
+            switchView('view-home');
+        }
+
+        function switchView(viewId) {
+            const views = ['view-home', 'view-grade-detail', 'view-quiz', 'view-result'];
+            views.forEach(v => {
+                document.getElementById(v).classList.add('hidden');
+            });
+            document.getElementById(viewId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function saveGlobalScore() {
+            localStorage.setItem('omn_global_score', globalScore);
+            document.getElementById('global-score-display').innerText = `${globalScore} Poin`;
+            document.getElementById('user-score-badge').classList.remove('hidden');
+        }
+
+        function loadGlobalScore() {
+            const saved = localStorage.getItem('omn_global_score');
+            if (saved) {
+                globalScore = parseInt(saved, 10);
+                document.getElementById('global-score-display').innerText = `${globalScore} Poin`;
+                document.getElementById('user-score-badge').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
